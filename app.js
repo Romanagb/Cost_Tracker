@@ -43,9 +43,15 @@ app.use(cors());
 app.use(`/`, costRouter);
 app.use(`/`, reportRouter);
 app.use(`/`, aboutRouter);
-app.use(costRouter);
-app.use(reportRouter);
-app.use(aboutRouter);
+//app.use(costRouter);
+//app.use(reportRouter);
+//app.use(aboutRouter);
+
+// Middleware to log all routes
+app.use((req, res, next) => {
+  console.log(`[${new Date().toLocaleString()}] ${req.method} ${req.originalUrl}`);
+  next();
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
