@@ -7,10 +7,10 @@ const logger = require(`morgan`);
 const mongoose = require(`mongoose`);
 
 //Load environment variables from .env file
-//require(`dotenv`).config();
+require(`dotenv`).config();
 
 //Connect to MongoDB Atlas
-mongoose.connect("MONGODB_URI=mongodb+srv://dbAdmin:dbAdmin@atlascluster.nlntfey.mongodb.net/cost_tracker?retryWrites=true&w=majority&appName=AtlasCluster", {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
@@ -36,12 +36,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, `public`)));
 
-app.use(`/`, costRouter);
-app.use(`/`, reportRouter);
-app.use(`/`, aboutRouter);
-app.use(costRouter);
-app.use(reportRouter);
-app.use(aboutRouter);
+app.use(`/addcost`, costRouter);
+app.use(`/report`, reportRouter);
+app.use(`/about`, aboutRouter);
+//app.use(costRouter);
+//app.use(reportRouter);
+//app.use(aboutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
