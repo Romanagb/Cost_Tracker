@@ -7,10 +7,10 @@ const logger = require(`morgan`);
 const mongoose = require(`mongoose`);
 
 //Load environment variables from .env file
-require(`dotenv`).config();
+//require(`dotenv`).config();
 
 //Connect to MongoDB Atlas
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect("MONGODB_URI=mongodb+srv://dbAdmin:dbAdmin@atlascluster.nlntfey.mongodb.net/cost_tracker?retryWrites=true&w=majority&appName=AtlasCluster", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
