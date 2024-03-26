@@ -39,9 +39,6 @@ app.use(express.static(path.join(__dirname, `public`)));
 app.use(`/addcost`, costRouter);
 app.use(`/report`, reportRouter);
 app.use(`/about`, aboutRouter);
-//app.use(costRouter);
-//app.use(reportRouter);
-//app.use(aboutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -63,12 +60,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render(`error`);
-});
-
-// Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
 });
 
 module.exports = app;
