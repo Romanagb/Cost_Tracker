@@ -69,9 +69,9 @@ app.use(function(err, req, res, next) {
   res.render(`error`);
 });
 
-/*// Start the server
+// Start the server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+/*app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });*/
 
